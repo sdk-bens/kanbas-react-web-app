@@ -1,0 +1,10 @@
+.wd-assignment-controls-pos-absolute-top {
+    position: absolute;
+    top: -11px;
+    left: 15px;
+    z-index: 10;
+}
+.wd-assignment-controls-pos-absolute-regular {
+    position: absolute;
+    top: -18px;
+}
