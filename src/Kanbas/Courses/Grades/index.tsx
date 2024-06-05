@@ -26,48 +26,47 @@ export default function Grades () {
           <div className="row mb-5">
 
             <div className="col-6">
-              <div className="text-start fw-bold mb-3">
-                <label htmlFor="wd-available-from" className="form-label">Student Names</label>
-              </div>
-
-              <div className="input-group rounded-2">
-                <div className="wd-assignment-controls-pos-absolute-top">
-                  <AiOutlineSearch className="fs-5 text-secondary"/>
+              <form>
+                <div className="form-group">
+                  <label className="fw-bold m-1" htmlFor="wd-student-search">
+                    Student Names
+                  </label>
+                  <div className="input-group rounded-2">
+                    <div className="wd-grades-search-icon-position">
+                      <AiOutlineSearch className="fs-5 text-secondary"/>
+                    </div>
+                      <input 
+                      type="text" 
+                      className="form-control rounded-2 ps-5" 
+                      id="wd-student-search"
+                      placeholder="Search Students" />
+                    </div>
                 </div>
-
-                <div className="wd-grades-controls-pos-absolute-regular w-100">
-                  <input 
-                    type="text" 
-                    className="form-control rounded-2 ps-5" 
-                    placeholder="Search Students" />
-                </div> 
-
-              </div>
-
+              </form>
             </div>
-            
+
             <div className="col-6">
+              <form>
+                <div className="form-group">
+                  <label className="fw-bold m-1" htmlFor="wd-assignment-search">
+                  Assignment Names
+                  </label>
+                  <div className="input-group rounded-2">
+                    <div className="wd-grades-search-icon-position">
+                      <AiOutlineSearch className="fs-5 text-secondary"/>
+                    </div>
 
-              <div className="col-md-12 text-start fw-bold mb-3">
-                <label htmlFor="wd-available-until" className="form-label">Assignment Names</label>
-              </div>
-
-              <div id="wd-assignment-controls-position-absolute" className="input-group  me-5 rounded-2">
-                
-                <div className="wd-assignment-controls-pos-absolute-top">
-                          <AiOutlineSearch className="fs-5 text-secondary"/>
+                      <input 
+                      type="text" 
+                      className="form-control rounded-2 ps-5" 
+                      id="wd-assignment-search"
+                      placeholder="Search Assignments" />
+                    </div>
                 </div>
-
-                <div className="wd-grades-controls-pos-absolute-regular w-100">
-                  <input 
-                    type="text" 
-                    className="form-control rounded-2 ps-5" 
-                    placeholder="Search Assignments" />
-                  </div> 
-
-              </div>
-
-            </div> 
+                 
+               
+              </form>
+            </div>
 
           </div>
 
@@ -501,12 +500,6 @@ export default function Grades () {
                 </tbody>
               </table>
             </div> 
-
-
-        
-
-        
-    
 
     </div>
     </div>
