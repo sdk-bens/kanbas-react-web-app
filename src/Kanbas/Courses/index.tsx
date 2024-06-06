@@ -8,7 +8,7 @@ import Grades from "./Grades";
 import { FaAlignJustify } from "react-icons/fa";
 export default function Courses() {
   return (
-    <div id="wd-courses" className="container">
+    <div id="wd-courses" className="h-100">
       <h2 className="text-danger"><FaAlignJustify className="me-4 fs-4 mb-1" />Course 1234</h2>
       <hr />
       <div className=""d-flex>
