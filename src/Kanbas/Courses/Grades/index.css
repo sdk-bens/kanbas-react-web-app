@@ -1,0 +1,51 @@
+.wd-grades-search-icon-position {
+    position: absolute;
+    top: 7px;
+    left: 15px;
+    z-index: 10;
+}
+.wd-grades-controls-pos-absolute-regular {
+    position: absolute;
+    top: -18px;
+}
+
+
+.border-red-on-focus:focus {
+    border: 1px solid red;
+}
+
+.border-red-on-focus:focus + .input-group-append .submit-button {
+    display: inline-block;
+}
+
+td:focus {
+    outline: 1px solid blue;
+}
+
+.table-hover tr:hover td {
+    background-color: rgb(180, 220, 245);
+}
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.input-transparent-border {
+    border-color: transparent;
+  }
+
+.bg-inherit {
+    background-color: inherit;
+}
+
+.submit-button-container {
+    display: none;
+}
+
+.input-container {
+    display: none;
+}
+
+.form-control:focus + .submit-button-container {
+    display: block;
+}
