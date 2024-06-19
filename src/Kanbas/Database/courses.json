@@ -67,9 +67,7 @@
   "endDate": "2023-05-15",
   "department": "Languages",
   "credits": 3,
-  "description": "This course offers an exploration of the ancient languages and scripts found throughout Middle-earth, including Elvish (Sindarin and Quenya), Dwarvish (Khuzdul), and the Black Speech of Mordor. Students will learn the historical and cultural contexts of these languages, their linguistic structures, and their usage in various inscriptions and texts. Emphasis is on understanding the philological aspects and the role of language in shaping Middle-earth's history and lore.",
-  "author": "654f9ec2ea7ead465908d1e3"
-    },
+  "description": "This course offers an exploration of the ancient languages and scripts found throughout Middle-earth, including Elvish (Sindarin and Quenya), Dwarvish (Khuzdul), and the Black Speech of Mordor. Students will learn the historical and cultural contexts of these languages, their linguistic structures, and their usage in various inscriptions and texts. Emphasis is on understanding the philological aspects and the role of language in shaping Middle-earth's history and lore."    },
     {
   "_id": "RS108",
   "name": "Wizards, Elves, and Men: Inter-species Diplomacy in Middle-earth",
@@ -78,8 +76,7 @@
   "endDate": "2023-05-15",
   "department": "Political Studies",
   "credits": 4,
-  "description": "This course explores the complex relationships and diplomatic interactions among the different races of Middle-earth: Elves, Men, Dwarves, and Wizards. Topics include the study of historical alliances, conflicts, and the role of leadership and wisdom in maintaining peace. Students will engage in discussions and case studies on key events in Middle-earth's history, such as the Council of Elrond and the War of the Ring, to understand the principles of diplomacy and conflict resolution in a multi-species context.",
-  "author": "654f9ec2ea7ead465908d1e3"
+  "description": "This course explores the complex relationships and diplomatic interactions among the different races of Middle-earth: Elves, Men, Dwarves, and Wizards. Topics include the study of historical alliances, conflicts, and the role of leadership and wisdom in maintaining peace. Students will engage in discussions and case studies on key events in Middle-earth's history, such as the Council of Elrond and the War of the Ring, to understand the principles of diplomacy and conflict resolution in a multi-species context."
     },
     {
   "_id": "RS109",
@@ -89,8 +86,7 @@
   "endDate": "2023-05-15",
   "department": "Mystical Studies",
   "credits": 4,
-  "description": "This course delves into the mystical and magical aspects of Middle-earth, examining the sources, practitioners, and manifestations of magic. Covering a range of magical beings, including Wizards, Elves, and Ents, as well as artifacts like the Rings of Power and Palantíri, students will learn about the philosophical and ethical dimensions of magic use. The course combines theoretical study with practical insights, offering a unique perspective on the magical forces that shape the events and destinies in the world of Middle-earth.",
-  "author": "654f9ec2ea7ead465908d1e3"
+  "description": "This course delves into the mystical and magical aspects of Middle-earth, examining the sources, practitioners, and manifestations of magic. Covering a range of magical beings, including Wizards, Elves, and Ents, as well as artifacts like the Rings of Power and Palantíri, students will learn about the philosophical and ethical dimensions of magic use. The course combines theoretical study with practical insights, offering a unique perspective on the magical forces that shape the events and destinies in the world of Middle-earth."
     },
     {
   "_id": "RS110",
@@ -130,8 +126,7 @@
   "endDate": "2023-05-15",
   "department": "Theology",
   "credits": 3,
-  "description": "This course explores the core principles of Christian ethics as derived from biblical texts and theological traditions. It covers topics such as moral decision-making, virtues and vices, and the role of faith in ethical living. Students will examine contemporary moral issues through the lens of Christian ethics, learning to apply these principles in various real-life contexts. The course encourages critical thinking and compassionate action guided by Christian values.",
-  "author": "65500111ea7ead465908d1fa"
+  "description": "This course explores the core principles of Christian ethics as derived from biblical texts and theological traditions. It covers topics such as moral decision-making, virtues and vices, and the role of faith in ethical living. Students will examine contemporary moral issues through the lens of Christian ethics, learning to apply these principles in various real-life contexts. The course encourages critical thinking and compassionate action guided by Christian values."
     },
     {
   "_id": "RS114",
@@ -141,8 +136,7 @@
   "endDate": "2023-05-15",
   "department": "History",
   "credits": 4,
-  "description": "This historical course delves into the development of early Christian communities and the Apostolic Age. It focuses on the life and teachings of Jesus Christ, the role of the Apostles, and the spread of Christianity across the Roman Empire. Students will explore primary sources, including the New Testament, to understand the challenges and triumphs of the early Church. The course also examines the formation of key Christian doctrines and the historical context of the Apostolic era.",
-  "author": "65500111ea7ead465908d1fa"
+  "description": "This historical course delves into the development of early Christian communities and the Apostolic Age. It focuses on the life and teachings of Jesus Christ, the role of the Apostles, and the spread of Christianity across the Roman Empire. Students will explore primary sources, including the New Testament, to understand the challenges and triumphs of the early Church. The course also examines the formation of key Christian doctrines and the historical context of the Apostolic era."
     },
     {
   "_id": "RS115",
@@ -152,8 +146,7 @@
   "endDate": "2023-05-15",
   "department": "Ministry",
   "credits": 3,
-  "description": "This course offers insights into effective leadership and service within Christian communities. Drawing on biblical teachings and the example of Saint Peter, it addresses the spiritual, ethical, and practical aspects of Christian leadership. Topics include pastoral care, community building, servant leadership, and the stewardship of church resources. Students will engage in practical exercises and discussions, preparing them for various roles in ministry and community service.",
-  "author": "65500111ea7ead465908d1fa"
+  "description": "This course offers insights into effective leadership and service within Christian communities. Drawing on biblical teachings and the example of Saint Peter, it addresses the spiritual, ethical, and practical aspects of Christian leadership. Topics include pastoral care, community building, servant leadership, and the stewardship of church resources. Students will engage in practical exercises and discussions, preparing them for various roles in ministry and community service."
     },
     {
   "_id": "RS116",
@@ -163,8 +156,7 @@
   "endDate": "2023-05-15",
   "department": "Islamic Studies",
   "credits": 3,
-  "description": "This course delves into the rich and profound world of Sufism, exploring its philosophical underpinnings, mystical practices, and historical development. Students will study key Sufi figures, including Rumi, Hafiz, and Khidr, and their teachings on love, divine union, and the journey of the soul. The course also examines various Sufi orders, their rituals, and contributions to Islamic spirituality and culture.",
-  "author": "655000a4ea7ead465908d1f5"
+  "description": "This course delves into the rich and profound world of Sufism, exploring its philosophical underpinnings, mystical practices, and historical development. Students will study key Sufi figures, including Rumi, Hafiz, and Khidr, and their teachings on love, divine union, and the journey of the soul. The course also examines various Sufi orders, their rituals, and contributions to Islamic spirituality and culture."
     },
     {
   "_id": "RS117",
@@ -174,8 +166,7 @@
   "endDate": "2023-05-15",
   "department": "Islamic Ethics",
   "credits": 3,
-  "description": "Focusing on the ethical dimensions of Islam, this course examines the moral teachings and wisdom found in the Quran and Hadith, with a special emphasis on the figure of Khidr. It explores concepts such as divine guidance, free will, moral reasoning, and the pursuit of righteousness. Students will engage in critical discussions on how these teachings apply to contemporary ethical dilemmas and personal spiritual growth.",
-  "author": "655000a4ea7ead465908d1f5"
+  "description": "Focusing on the ethical dimensions of Islam, this course examines the moral teachings and wisdom found in the Quran and Hadith, with a special emphasis on the figure of Khidr. It explores concepts such as divine guidance, free will, moral reasoning, and the pursuit of righteousness. Students will engage in critical discussions on how these teachings apply to contemporary ethical dilemmas and personal spiritual growth."
     },
     {
   "_id": "RS118",
@@ -185,8 +176,7 @@
   "endDate": "2023-05-15",
   "department": "Islamic Mysticism",
   "credits": 4,
-  "description": "This advanced course explores the esoteric aspects of Islam, delving into topics such as the nature of the unseen world, spiritual symbolism in Islamic texts, and the role of mystical experiences. Drawing on the stories and teachings of Khidr, the course offers students a deeper understanding of the interplay between the material and spiritual realms, encouraging a reflective and introspective approach to religious study and practice.",
-  "author": "655000a4ea7ead465908d1f5"
+  "description": "This advanced course explores the esoteric aspects of Islam, delving into topics such as the nature of the unseen world, spiritual symbolism in Islamic texts, and the role of mystical experiences. Drawing on the stories and teachings of Khidr, the course offers students a deeper understanding of the interplay between the material and spiritual realms, encouraging a reflective and introspective approach to religious study and practice."
     },
     {
   "_id": "RS119",
