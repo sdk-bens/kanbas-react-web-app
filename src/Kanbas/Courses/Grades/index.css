@@ -19,7 +19,7 @@
 }
 
 td:focus {
-    outline: 1px solid blue; /* Add a blue outline when the cell is focused */
+    outline: 1px solid blue;
 }
 
 .table-hover tr:hover td {
@@ -49,9 +49,3 @@ td:focus {
 .form-control:focus + .submit-button-container {
     display: block;
 }
-
-
-.asd { background-color: red; color: white }
-#asd { background-color: red }
-.zxc { background-color: blue; color: white }
-#zxc { background-color: blue }
