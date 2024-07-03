@@ -45,13 +45,6 @@ export default function AssignmentEditor() {
         }));
     };
 
-    const handleCancel = () => {
-        if (id === "New") {
-          dispatch(deleteAssignment(id)); 
-        }
-    
-      };
-
     return (
         <div id="wd-assignment-editor" className="row">
             <div id="wd-assignments-editor-course-navigation" className="d-none d-md-block col-md-3">
@@ -232,8 +225,6 @@ export default function AssignmentEditor() {
                                             <label className="m-1 fw-bold" htmlFor="wd-assign-due">
                                                 Due
                                             </label>
-                                            
-
                                             <input 
                                                 type="date" 
                                                 className="form-control" 
@@ -244,8 +235,7 @@ export default function AssignmentEditor() {
                                                 defaultValue={"2024-05-13"}
                                                 onChange={handleInputChange}    
                                             />
-                                          
-                                        
+
                                         </div>
                                     </form>
                             
@@ -309,7 +299,7 @@ export default function AssignmentEditor() {
                         <hr className="my-4" />
                         <div className="row mb-3">
                             <div className="col text-end">
-                                <Link to={`/Kanbas/Courses/${cid}/Assignments`} className='btn btn-secondary me-2' id="wd-cancel" onClick={handleCancel}>
+                                <Link to={`/Kanbas/Courses/${cid}/Assignments`} className='btn btn-secondary me-2' id="wd-cancel" >
                                     Cancel
                                 </Link>
                                 

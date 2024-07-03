@@ -11,9 +11,9 @@ import { Provider } from "react-redux";
 export default function Kanbas() {
   const [courses, setCourses] = useState<any[]>(db.courses);
   const [course, setCourse] = useState<any>({
-    _id: "0", name: "New Course", number: "New Number",
+    _id: "0", name: "New Course: this is the course name ...", number: "New Number",
     startDate: "2023-09-10", endDate: "2023-12-15",
-    image: "public/images/react.jpg", description: "New Description"
+    image: "react.jpg", description: "New Description: this is a description for the course ..."
   });
 
   const addNewCourse = () => {
