@@ -1,7 +1,14 @@
 import { FaPlus } from "react-icons/fa6";
 import { AiOutlineSearch } from 'react-icons/ai';
 import "./index.css"
+import { addAssignment } from "./reducer";
+import { Link, useParams } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+
 export default function AssignmentsControls() {
+    const dispatch = useDispatch();
+    const { cid, id } = useParams();
+
     return (
         <div id="wd-assignments-controls" className="text-nowrap">
             <div className="d-flex justify-content-end align-items-center">
@@ -23,10 +30,15 @@ export default function AssignmentsControls() {
                     Group
                 </button>
 
-                <button id="wd-add-assignment-btn" className="btn btn-lg btn-danger p-1 m-1">
-                    <FaPlus className="me-2" />
-                    Assignment
-                </button>  
+                    <Link key={`${cid}/new`} to={`${cid}/new`} 
+                                   
+                        id="wd-add-assignment-btn" 
+                        className="btn btn-lg btn-danger p-1 m-1 " 
+                        >
+                        <FaPlus className="me-2" />
+                        Assignment
+                    </Link>
+               
             </div>
         </div>
     )

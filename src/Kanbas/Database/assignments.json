@@ -403,7 +403,7 @@
       "_id": "A1402",
       "title": "Analysis of Apostle Paul's Letters",
       "course": "RS114",
-      "available": "Feb 20",
+      "availableFrom": "Feb 20",
       "dueDate": "Feb 27",
       "DueTime": "11:59 pm",
       "points": 100,

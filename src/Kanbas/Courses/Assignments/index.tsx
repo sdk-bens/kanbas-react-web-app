@@ -7,14 +7,27 @@ import { IoEllipsisVertical } from "react-icons/io5";
 import "./index.css"
 import CoursesNavigation from "../Navigation";
 import * as db from "../../Database"
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { addAssignment, deleteAssignment, updateAssignment } from "./reducer";
+import { useSelector, useDispatch } from "react-redux";
+import AssignmentControlButtons from "./AssignmentControlButton";
+import { FaPlus } from "react-icons/fa";
 
 
 export default function Assignments() {
-  const assignments = db.assignments;
+  
   const { cid } = useParams();
+  const [ assignmentTitle, setAssignmentTitle ] = useState("");
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const dispatch = useDispatch();
 
-  const filteredAssignments = assignments.filter(assignment => assignment.course === cid);
+  const dateObjectToHtmlDateString = (date: Date) => {
+    return `${date.getFullYear()}-${date.getMonth() + 1 < 10 ? 0 : ""}${date.getMonth()+1}
+    -${date.getDate() + 1 < 10 ? 0 : ""}${date.getDate() + 1}`;
+    };
+
+    
 
 
     return (
@@ -28,6 +41,7 @@ export default function Assignments() {
           <div id="wd-assignments-control" className="row mb-3 justify-content-end">
             <AssignmentsControls />< br /><br />
           </div>
+          
 
          
           <ul id="wd-assignments-list" className="list-group rounded-0">
@@ -36,12 +50,14 @@ export default function Assignments() {
                 <BsGripVertical className="me-2 fs-3" />
                 ASSIGNMENTS 
                 <div className="float-end fs-5">
-                  <span className="border rounded-5 p-2">40% of Total</span> <BsPlus className="fs-3"/> <IoEllipsisVertical className="fs-4" />
+                  <span className="border rounded-5 p-2">40% of Total</span> 
+                  <BsPlus className="fs-3"/> 
+                  <IoEllipsisVertical className="fs-4" />
                 </div>
               </div>
 
               <ul className="wd-assignments list-group rounded-0 border-5 border-start border-success">
-                {filteredAssignments.map(assignment => (
+                {assignments.filter((assignment: any) => assignment.course === cid).map((assignment: any) => (
                   <li key={assignment._id} className="wd-assignments list-group-item p-3 ps-1">
                     <div className="row align-items-center">
                       <div className="col-auto">
@@ -54,17 +70,23 @@ export default function Assignments() {
                         >
                           {assignment.title}
                         </a>
+                        
                         <div className="fs-6">
                           <span className="text-danger">Multiple Modules </span> |
                           <span className="text-muted">
+                            {/* <span className="fw-bold"> Not available until</span> {dateObjectToHtmlDateString(assignment.available)} |
+                            <span className="fw-bold"> Due</span> {dateObjectToHtmlDateString(assignment.dueDate)} at 11:59 pm | */}
                             <span className="fw-bold"> Not available until</span> {assignment.available} |
-                            <span className="fw-bold"> Due</span> {assignment.dueDate} at {assignment.DueTime} |
+                            <span className="fw-bold"> Due</span> {assignment.dueDate} at 11:59 pm |
                             <span className="fw-bold"> Points</span> {assignment.points}
                           </span>
                         </div>
                       </div>
                       <div className="col-auto">
-                        <LessonControlButtons />
+                        <AssignmentControlButtons
+                        assignmentId={assignment._id} 
+                        deleteAssignment={(assignmentId) => { dispatch(deleteAssignment(assignmentId));
+                        }} />
                       </div>
                     </div>
                   </li>
