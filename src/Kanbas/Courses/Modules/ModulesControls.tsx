@@ -1,7 +1,10 @@
 import { FaPlus } from "react-icons/fa6";
 import GreenCheckmark from "./GreenCheckmark";
 import { MdDoNotDisturbAlt } from "react-icons/md";
-export default function ModulesControls() {
+import ModuleEditor from "./ModuleEditor";
+
+export default function ModulesControls({ moduleName, setModuleName, addModule }:
+    { moduleName: string; setModuleName: (title: string) => void; addModule: () => void; }) {
     return (
         <div id="wd-modules-controls" className="text-nowrap">
             <div className="d-flex justify-content-end align-items-center">
@@ -47,11 +50,15 @@ export default function ModulesControls() {
                         </li>
                     </ul>
                 </div>
-                <button id="wd-add-module-btn" className="btn btn-md btn-danger p-1 m-1">
+                <button id="wd-add-module-btn" className="btn btn-md btn-danger p-1 m-1"
+                data-bs-toggle="modal" data-bs-target="#wd-add-module-dialog">
                     <FaPlus className="position-relative me-2" style={{ bottom: "1px "}} />
                     Module
                 </button>
+                <ModuleEditor dialogTitle="Add Module" moduleName={moduleName}
+                    setModuleName={setModuleName} addModule={addModule} />
             </div>
+            
         </div>
     )
 }

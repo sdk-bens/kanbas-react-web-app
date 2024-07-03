@@ -1,12 +1,56 @@
-import React from 'react';
-import CoursesNavigation from '../Navigation';
-import { Link, useParams } from 'react-router-dom';
-import * as db from "../../Database";
+import "./index.css";
+import CoursesNavigation from "../Navigation";
+import { Link, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { updateAssignment, deleteAssignment } from "./reducer"; 
+import { useSelector, useDispatch } from "react-redux";
 
 export default function AssignmentEditor() {
-    const assignments = db.assignments;
     const { cid, id } = useParams();
-    const filteredAssignments = assignments.filter(assignment => assignment._id === id);
+    const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+    const dispatch = useDispatch();
+
+    const [assignmentData, setAssignmentData] = useState({
+        title: "",
+        description: "",
+        points: "",
+        dueDate: "",
+        available: "",
+        availableUntil: ""
+    });
+
+    useEffect(() => {
+        const assignment = assignments.find((assign: any) => assign._id === id);
+        if (assignment) {
+            setAssignmentData({
+                title: assignment.title,
+                description: assignment.description,
+                points: assignment.points.toString(),
+                dueDate: assignment.dueDate,
+                available: assignment.available,
+                availableUntil: assignment.availableUntil
+            });
+        }
+    }, [id, assignments]);
+
+    const handleInputChange = (e: any) => {
+        const { name, value } = e.target;
+        setAssignmentData({ ...assignmentData, [name]: value });
+    };
+
+    const handleSave = () => {
+        dispatch(updateAssignment({
+            ...assignments.find((assign: any) => assign._id === id),
+            ...assignmentData
+        }));
+    };
+
+    const handleCancel = () => {
+        if (id === "New") {
+          dispatch(deleteAssignment(id)); 
+        }
+    
+      };
 
     return (
         <div id="wd-assignment-editor" className="row">
@@ -15,58 +59,66 @@ export default function AssignmentEditor() {
             </div>
 
             <div id="wd-assignments-editor-content" className="col-12 col-md-9">
-                {filteredAssignments.map(assignment => (
-                    <div>
-                    <form>
-                        <div className="form-group mb-2">
-                            <label className="m-1" htmlFor="wd-assignment-name">
-                                Assignment Name
-                            </label>
-                            <input 
-                            type="text" 
-                            className="form-control" 
-                            id="wd-assignment-name"
-                            placeholder={assignment.title}
-                            defaultValue={assignment.title}
-                            />
-                        </div>
-                    
-                    </form>
-                    
-                    <div className="mb-3">
-                        <div
-                            id="wd-description"
-                            className="form-control"
-                            contentEditable
-                            style={{ whiteSpace: "pre-wrap", minHeight: "10rem", padding: "0.5rem", border: "1px solid #ced4da", borderRadius: "0.25rem" }}
-                        >
-                            The assignment is <span className='text-danger'>available online</span>.<br/>
-                            {assignment.description}
-                        </div>
-                    </div>
+                {assignments.filter((assign: any) => assign._id === id).map((assignment: any) => (
+                    <div key={assignment._id}>
+                        <form>
+                            <div className="form-group mb-2">
+                                <label className="m-1" htmlFor="wd-assignment-name">
+                                    Assignment Name
+                                </label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="wd-assignment-name"
+                                    name="title"
+                                    value={assignmentData.title}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                        </form>
 
-                <form>
-                <div className="form-group mb-2">
-                    <div className="row align-items-center justify-content-end">
-                        <div className="col-auto">
-                            <label className="form-label m-1" htmlFor="wd-points">
-                                Points
-                            </label>
-                        </div>
-                        <div className="col-8">
-                            <input 
-                                type="text" 
-                                className="form-control" 
-                                id="wd-points"
-                                placeholder={assignment.points.toString()}
-                                defaultValue={assignment.points.toString()}
-                            />
-                        </div>
-                    </div>
-                </div>
-                </form>
+                        <form>
+                            <div className="form-group mb-2">
+                                <textarea
+                                    className="form-control"
+                                    id="wd-assignment-description"
+                                    name="description"
+                                    value={assignmentData.description}
+                                    onChange={handleInputChange}
+                                    style={{
+                                        whiteSpace: "pre-wrap",
+                                        minHeight: "5rem",
+                                        padding: "0.5rem",
+                                        border: "1px solid #ced4da",
+                                        borderRadius: "0.25rem",
+                                        width: "100%"
+                                    }}
+                                />
+                            </div>
+                        </form>
 
-                <form>
+                        <form>
+                            <div className="form-group mb-2">
+                                <div className="row align-items-center justify-content-end">
+                                    <div className="col-auto">
+                                        <label className="form-label m-1" htmlFor="wd-points">
+                                            Points
+                                        </label>
+                                    </div>
+                                    <div className="col-8">
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="wd-points"
+                                            name="points"
+                                            value={assignmentData.points}
+                                            onChange={handleInputChange}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form>
                 <div className="form-group mb-2">
                     <div className="row align-items-center justify-content-end">
                         <div className="col-auto">
@@ -153,7 +205,6 @@ export default function AssignmentEditor() {
                         </div>
                     </div>                
                 </form>
-
                 <form>
                     <div className='row mb-3 justify-content-end'>
                         <div className="col-auto">
@@ -181,14 +232,19 @@ export default function AssignmentEditor() {
                                             <label className="m-1 fw-bold" htmlFor="wd-assign-due">
                                                 Due
                                             </label>
+                                            
 
                                             <input 
                                                 type="date" 
                                                 className="form-control" 
                                                 id="wd-assign-due"
                                                 placeholder="2024-05-13"
+                                                name="dueDate"
+                                                // value={assignmentData.dueDate}
                                                 defaultValue={"2024-05-13"}
+                                                onChange={handleInputChange}    
                                             />
+                                          
                                         
                                         </div>
                                     </form>
@@ -207,7 +263,13 @@ export default function AssignmentEditor() {
                                                         className="form-control" 
                                                         id="wd-assign-available-from"
                                                         placeholder="2024-05-13"
+                                                        name="available"
+                                                        // value={assignmentData.available}
                                                         defaultValue={"2024-05-13"}
+                                                        onChange={handleInputChange}
+
+
+
                                                     />
                                                 
                                                 </div>
@@ -229,6 +291,9 @@ export default function AssignmentEditor() {
                                                         id="wd-assign-until"
                                                         placeholder="2024-05-13"
                                                         defaultValue={"2024-05-13"}
+                                                        name="availableUntil"
+                                                        onChange={handleInputChange}
+
                                                     />
                                                 
                                                 </div>
@@ -239,20 +304,28 @@ export default function AssignmentEditor() {
                             </div>
                         </div>
                     </form>
-                    <hr className="my-4" />
-                    <div className="row mb-3">
-                        <div className="col text-end">
-                            <Link to={`/Kanbas/Courses/${cid}/Assignments`} className='btn btn-secondary me-2' id="wd-cancel">
-                                Cancel
-                            </Link>
-                    
-                            <Link to={`/Kanbas/Courses/${cid}/Assignments`} className='btn btn-danger me-2' id="wd-cancel">
-                                Save
-                            </Link>
+
+
+                        <hr className="my-4" />
+                        <div className="row mb-3">
+                            <div className="col text-end">
+                                <Link to={`/Kanbas/Courses/${cid}/Assignments`} className='btn btn-secondary me-2' id="wd-cancel" onClick={handleCancel}>
+                                    Cancel
+                                </Link>
+                                
+                                <Link to={`/Kanbas/Courses/${cid}/Assignments`} 
+                                    className='btn btn-danger me-2' 
+                                    id="wd-cancel"
+                                    onClick={handleSave}
+                                    >
+                                        Save
+                                </Link>
+
+                                
+                            </div>
                         </div>
                     </div>
-                </div>
-                ))}   
+                ))}
             </div>
         </div>
     );

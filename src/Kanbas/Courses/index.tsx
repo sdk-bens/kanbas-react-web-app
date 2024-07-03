@@ -1,13 +1,13 @@
 import CoursesNavigation from "./Navigation";
-import { courses } from "../Database"
 import { Navigate, Route, Routes, useParams, useLocation } from "react-router";
 import Modules from "./Modules";
 import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
+import AddAssignmentForm from "./Assignments/addassignmemt";
 import Grades from "./Grades";
 import { FaAlignJustify } from "react-icons/fa";
-export default function Courses() {
+export default function Courses({ courses }: { courses: any[]; }) {
   const { cid } = useParams();
   const course = courses.find((course) => course._id === cid);
   const { pathname } =  useLocation();
@@ -24,6 +24,7 @@ export default function Courses() {
             <Route path="Modules" element={<Modules />} />
             <Route path="Assignments" element={<Assignments />} />
             <Route path="Assignments/:id" element={<AssignmentEditor />} />
+            <Route path="/Assignments/:cid/:id" element={<AddAssignmentForm />} />
             <Route path="Grades" element={<Grades />} />
           </Routes>
         </div>
