@@ -8,11 +8,13 @@ import "./index.css"
 import CoursesNavigation from "../Navigation";
 import * as db from "../../Database"
 import { Link, useParams } from "react-router-dom";
-import React, { useState } from "react";
-import { addAssignment, deleteAssignment, updateAssignment } from "./reducer";
+import React, { useState, useEffect } from "react";
+import { addAssignment, deleteAssignment, updateAssignment, setAssignments } from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
 import AssignmentControlButtons from "./AssignmentControlButton";
 import { FaPlus } from "react-icons/fa";
+
+import * as client from "./client";
 
 
 export default function Assignments() {
@@ -25,9 +27,21 @@ export default function Assignments() {
   const dateObjectToHtmlDateString = (date: Date) => {
     return `${date.getFullYear()}-${date.getMonth() + 1 < 10 ? 0 : ""}${date.getMonth()+1}
     -${date.getDate() + 1 < 10 ? 0 : ""}${date.getDate() + 1}`;
-    };
+  };
 
-    
+  const fetchAssignment = async () => {
+    const assignment = await client.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignment));
+  };
+  useEffect(() => {
+    fetchAssignment();
+  }, []);
+
+  const removeAssignment = async (assignmentId: string) => {
+    await client.deleteAssignment(assignmentId);
+    dispatch(deleteAssignment(assignmentId));
+  };
+
 
 
     return (
@@ -85,7 +99,8 @@ export default function Assignments() {
                       <div className="col-auto">
                         <AssignmentControlButtons
                         assignmentId={assignment._id} 
-                        deleteAssignment={(assignmentId) => { dispatch(deleteAssignment(assignmentId));
+                        deleteAssignment={(assignmentId) => { removeAssignment(assignmentId);
+                      
                         }} />
                       </div>
                     </div>

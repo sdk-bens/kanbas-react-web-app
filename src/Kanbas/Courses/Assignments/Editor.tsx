@@ -4,11 +4,11 @@ import { Link, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { updateAssignment, deleteAssignment } from "./reducer"; 
 import { useSelector, useDispatch } from "react-redux";
+import * as client from "./client";
 
 export default function AssignmentEditor() {
     const { cid, id } = useParams();
     const { assignments } = useSelector((state: any) => state.assignmentsReducer);
-    const dispatch = useDispatch();
 
     const [assignmentData, setAssignmentData] = useState({
         title: "",
@@ -38,12 +38,21 @@ export default function AssignmentEditor() {
         setAssignmentData({ ...assignmentData, [name]: value });
     };
 
-    const handleSave = () => {
-        dispatch(updateAssignment({
-            ...assignments.find((assign: any) => assign._id === id),
-            ...assignmentData
-        }));
+   
+
+    const handleSave = async () => {
+        try {
+            await client.updateAssignment({
+                ...assignments.find((assign: any) => assign._id === id),
+                ...assignmentData
+            });
+            console.log("Assignment updated successfully!");
+        } catch (error) {
+            console.error("Error updating assignment:", error);
+        }
     };
+
+    
 
     return (
         <div id="wd-assignment-editor" className="row">

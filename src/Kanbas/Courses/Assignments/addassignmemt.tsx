@@ -3,11 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addAssignment } from "./reducer";
 import CoursesNavigation from "../Navigation";
+import * as client from "./client"; 
 
 
 export default function AddAssignmentForm() {
     const { cid } = useParams();
     const dispatch = useDispatch();
+
 
     const [assignmentData, setAssignmentData] = useState({
         title: "New Assignment",
@@ -23,14 +25,25 @@ export default function AddAssignmentForm() {
         setAssignmentData({ ...assignmentData, [name]: value });
     };
 
-    const handleSave = () => {
-        const newAssignment = {
-            _id: new Date().getTime().toString(),
-            ...assignmentData,
-            course: cid
-        };
-        dispatch(addAssignment(newAssignment));
+    // const handleSave = () => {
+    //     const newAssignment = {
+    //         _id: new Date().getTime().toString(),
+    //         ...assignmentData,
+    //         course: cid
+    //     };
+    //     dispatch(addAssignment(newAssignment));
+    // };
+
+    const handleSave = async () => {
+        try {
+            const newAssignment = await client.createAssignment(cid as string, assignmentData);
+            dispatch(addAssignment(newAssignment));
+        } catch (error) {
+            console.error("Error creating assignment:", error);
+        }
     };
+
+    
 
     return (
         <div id="wd-assignments-editor" className="row">
