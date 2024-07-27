@@ -6,7 +6,7 @@ export default function CoursesNavigation() {
   const { cid } = useParams();
   const { pathname } = useLocation();
 
-  const links = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "Grades"];
+  const links = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "People", "Grades"];
   const basePath = `/Kanbas/Courses/${cid}`;
 
   return (
