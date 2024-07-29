@@ -1,5 +1,6 @@
 import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
+import Account from "./Account";
 import { Routes, Route, Navigate } from "react-router";
 import Courses from "./Courses";
 import "./styles.css";
@@ -7,6 +8,7 @@ import * as client from "./Courses/client";
 import { useEffect, useState } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
+import ProtectedRoute from "./ProtectRoute";
 
 export default function Kanbas() {
   const [courses, setCourses] = useState<any[]>([]);
@@ -56,17 +58,22 @@ export default function Kanbas() {
         </div>
         <div className="flex-fill p-4">
           <Routes>
+            <Route path="/Account/*" element={<Account />} />
             <Route path="/" element={<Navigate to="Dashboard" />} />
             <Route path="Dashboard" element={
-            <Dashboard 
-            courses={courses}
-            course={course}
-            setCourse={setCourse}
-            addNewCourse={addNewCourse}
-            deleteCourse={deleteCourse}
-            updateCourse={updateCourse}/>
+              <ProtectedRoute>
+              <Dashboard 
+              courses={courses}
+              course={course}
+              setCourse={setCourse}
+              addNewCourse={addNewCourse}
+              deleteCourse={deleteCourse}
+              updateCourse={updateCourse}/>
+              </ProtectedRoute>
             } />
-            <Route path="Courses/:cid/*" element={<Courses courses={courses} />} />
+            {/* <Route path="Courses/:cid/*" element={<ProtectedRoute><Courses courses={courses} /></ProtectedRoute>} /> */}
+            <Route path="Courses/:cid/*" element={<ProtectedRoute><Courses courses={courses} /></ProtectedRoute>} />
+
             <Route path="Calendar" element={<h1>Calendar</h1>} />
             <Route path="Inbox" element={<h1>Inbox</h1>} />
           </Routes>

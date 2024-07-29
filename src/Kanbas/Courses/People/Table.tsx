@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router";
 import { FaPlus } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
+import CoursesNavigation from "../Navigation";
 
 import PeopleDetails from "./Details";
 export default function PeopleTable() {
@@ -54,7 +55,14 @@ export default function PeopleTable() {
     fetchUsers();
   }, []);
   return (
-    <div id="wd-people-table">
+    
+    <div id="wd-users" className="row">
+      <div id="wd-assignments-course-navigation" className="d-none d-md-block col-md-3">
+          <CoursesNavigation />
+         </div>
+    
+    <div id="wd-people-table" className="col-12 col-md-9">
+      
        <button onClick={createUser} className="float-end btn btn-danger wd-add-people">
         <FaPlus className="me-2" />
         People
@@ -97,6 +105,6 @@ export default function PeopleTable() {
 
     <PeopleDetails fetchUsers={fetchUsers} />
   </div>
+  </div>
 );
 }
-
