@@ -23,16 +23,18 @@ export default function Signin() {
   };
 
   return (
-    <div id="wd-signin-screen">
-      <h1>Sign in</h1>
-      {error && <div className="wd-error alert alert-danger">{error}</div>}
-      <input id="wd-username" onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
-        value={credentials.username} className="form-control mb-2" placeholder="username" />
-      <input id="wd-password" onChange={(e) => setCredentials({ ...credentials, password: e.target.value }) }
-        value={credentials.password} className="form-control mb-2" placeholder="password" type="password" />
-      <button id="wd-signin-btn" onClick={signin} className="btn btn-primary w-100"> Sign in </button>
-      <br />
-      <Link id="wd-signup-link" to="/Kanbas/Account/Signup">Sign up</Link>
+    <div id="wd-signin-screen" className="container d-flex justify-content-center align-items-center vh-100">
+      <div className="w-50">
+        <h1>Sign in</h1>
+        {error && <div className="wd-error alert alert-danger">{error}</div>}
+        <input id="wd-username" onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
+          value={credentials.username} className="form-control mb-2" placeholder="username" />
+        <input id="wd-password" onChange={(e) => setCredentials({ ...credentials, password: e.target.value }) }
+          value={credentials.password} className="form-control mb-2" placeholder="password" type="password" />
+        <button id="wd-signin-btn" onClick={signin} className="btn btn-primary w-100"> Sign in </button>
+        <br />
+        <Link id="wd-signup-link" to="/Kanbas/Account/Signup">Sign up</Link>
+      </div>
     </div>
   );
 }
