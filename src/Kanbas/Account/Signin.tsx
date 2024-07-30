@@ -31,7 +31,7 @@ export default function Signin() {
           value={credentials.username} className="form-control mb-2" placeholder="username" />
         <input id="wd-password" onChange={(e) => setCredentials({ ...credentials, password: e.target.value }) }
           value={credentials.password} className="form-control mb-2" placeholder="password" type="password" />
-        <button id="wd-signin-btn" onClick={signin} className="btn btn-primary w-100"> Sign in </button>
+        <button id="wd-signin-btn" onClick={signin} className="btn btn-primary mb-2 w-100"> Sign in </button>
         <br />
         <Link id="wd-signup-link" to="/Kanbas/Account/Signup">Sign up</Link>
       </div>
