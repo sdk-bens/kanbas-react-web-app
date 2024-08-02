@@ -9,6 +9,7 @@ import Grades from "./Grades";
 import PeopleTable from "./People/Table";
 import { FaAlignJustify } from "react-icons/fa";
 import PeopleDetails from "./People/Details";
+import Quizzes from "./Quizzes";
 
 
 export default function Courses({ courses }: { courses: any[]; }) {
@@ -32,6 +33,7 @@ export default function Courses({ courses }: { courses: any[]; }) {
             <Route path="Grades" element={<Grades />} />
             <Route path="People" element={<PeopleTable />} />
             <Route path="People/:uid" element={<PeopleTable />} />
+            <Route path="Quizzes" element={<Quizzes />} />
           </Routes>
         </div>
       </div>  
