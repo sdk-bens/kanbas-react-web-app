@@ -25,12 +25,7 @@ export default function QuizControls() {
                     </div> 
                 </div>
 
-                <button id="wd-group" className="btn btn-lg btn-secondary p-1 m-1">
-                    <FaPlus className="me-2" />
-                    Group
-                </button>
-
-                    <Link key={`${cid}/new`} to={`${cid}/new`} 
+                <Link key={`${cid}/new`} to={`${cid}/new`} 
                                    
                         id="wd-add-quiz-btn" 
                         className="btn btn-lg btn-danger p-1 m-1 " 

@@ -6,7 +6,7 @@ const initialState = {
 
 
 const quizSlice = createSlice({
-    name: "quiz",
+    name: "quizzes",
     initialState,
     reducers: {
         setQuizzes: (state, action) => {
@@ -15,13 +15,26 @@ const quizSlice = createSlice({
         addQuiz : (state, { payload: quiz}) => {
             const newQuiz: any = {
                 _id: new Date().getTime().toString(),
-                title: quiz.title,
-                course: quiz.course,
-                availableFrom: quiz.available,
-                dueDate: quiz.dueDate,
-                dueTime: quiz.dueTime,
-                points: quiz.points,
                 description: quiz.description,
+                course: quiz.course,
+                due: quiz.due,
+                availableFrom: quiz.availableFrom,
+                availableUntil: quiz.availableUntil,
+                for: quiz.for,
+                published: quiz.published,
+                quizType: quiz.quizType,
+                points: quiz.points,
+                assignmentGroup: quiz.assignmentGroup,
+                shuffleAnswers: quiz.showCorrectAnswers,
+                timeLimitCheckbox: quiz.timeLimitCheckbox,
+                timeLimit: quiz.timeLimit,
+                multipleAttempts: quiz.multipleAttempts,
+                showCorrectAnswers: quiz.showCorrectAnswers,
+                accessCode: quiz.accessCode,
+                oneQuestionAtATime: quiz.oneQuestionAtATime,
+                webcamRequired: quiz.webcamRequired,
+                lockQuestionsAfterAnswering: quiz.lockQuestionsAfterAnswering,
+
             };
             state.quizzes = [...state.quizzes, newQuiz] as any;
         },
@@ -29,7 +42,6 @@ const quizSlice = createSlice({
         deleteQuiz: (state, { payload: quizId }) => {
             state.quizzes = state.quizzes.filter((a: any) => a._id !== quizId);
         },
-
        
         updateQuiz: (state, { payload: quiz }) => {
             state.quizzes = state.quizzes.map((a: any) => a._id === quiz._id ? quiz : a) as any;
